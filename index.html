@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Порівняння матеріалів</title>
+</head>
+<body>
+    <div class="material-comparator">
+        <h2>Порівняння матеріалів</h2>
+        
+        <h3>Оберіть матеріали для порівняння:</h3>
+
+        <div class="material-selector">
+            
+            <label class="material-checkbox">
+                <input type="checkbox" value="1" data-material-id="1">
+                Бавовняне полотно
+            </label>
+
+            <label class="material-checkbox">
+                <input type="checkbox" value="1" data-material-id="1">
+                Бавовняне полотно 
+                з лаком
+            </label>
+            
+            <label class="material-checkbox">
+                <input type="checkbox" value="1" data-material-id="1">
+                Синтетичне полотно
+            </label>
+
+            <label class="material-checkbox">
+                <input type="checkbox" value="1" data-material-id="1">
+                Синтетичне полотно 
+                з лаком
+            </label>
+
+        </div>
+        
+        <div class="comparison-container">
+            <div class="comparison-grid" id="comparisonGrid">
+                <!-- Тут будуть відображатись зображення -->
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="zoomIn">Збільшити (+)</button>
+            <button id="zoomOut">Зменшити (-)</button>
+            <button id="resetZoom">Скинути масштаб</button>
+            <div class="zoom-info">Масштаб: <span id="zoomLevel">100%</span></div>
+        </div>
+    </div>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
