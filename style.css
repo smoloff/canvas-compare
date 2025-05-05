@@ -52,10 +52,15 @@
 }
 
 .comparison-item {
+    display: block;
     position: relative;
     overflow: hidden;
     flex: 1;
     min-width: 0;
+}
+
+.comparison-item-off{
+    display: none;
 }
 
 .comparison-image {

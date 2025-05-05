@@ -12,7 +12,7 @@
         
         <h3>Оберіть матеріали для порівняння:</h3>
 
-        <div class="material-selector">
+        <div class="material-selector" id="material-selector">
             
             <label class="material-checkbox">
                 <input type="checkbox" data-material-id="1" checked>
@@ -31,7 +31,7 @@
             </label>
 
             <label class="material-checkbox">
-                <input type="checkbox"  data-material-id="4">
+                <input type="checkbox" data-material-id="4">
                 Синтетичне полотно 
                 з лаком
             </label>
@@ -40,21 +40,21 @@
         
         <div class="comparison-container">
             <div class="comparison-grid" id="comparisonGrid">
-                <div class="comparison-item">
-                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Бавовняне полотно" data-material-id="1" style="transform: translate(0px, 0px) scale(1);">
+                <div class="comparison-item" data-material-id="1">
+                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Бавовняне полотно"  style="transform: translate(0px, 0px) scale(1);">
                     <div class="material-name">Бавовняне полотно</div>
                 </div>
 
-                <div class="comparison-item">
-                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Бавовняне полотно з лаком" data-material-id="1" style="transform: translate(0px, 0px) scale(1);">
+                <div class="comparison-item" data-material-id="2">
+                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Бавовняне полотно з лаком" style="transform: translate(0px, 0px) scale(1);">
                     <div class="material-name">Бавовняне полотно з лаком</div>
                 </div>
-                <div class="comparison-item">
-                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Синтетичне полотно" data-material-id="1" style="transform: translate(0px, 0px) scale(1);">
+                <div class="comparison-item comparison-item-off" data-material-id="3">
+                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Синтетичне полотно" style="transform: translate(0px, 0px) scale(1);">
                     <div class="material-name">Синтетичне полотно</div>
                 </div>
-                <div class="comparison-item">
-                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Синтетичне полотно з лаком" data-material-id="1" style="transform: translate(0px, 0px) scale(1);">
+                <div class="comparison-item comparison-item-off" data-material-id="4">
+                    <img class="comparison-image" src="https://example.com/glossy.jpg" alt="Синтетичне полотно з лаком" style="transform: translate(0px, 0px) scale(1);">
                     <div class="material-name">Синтетичне полотно з лаком</div>
                 </div>
             </div>
@@ -69,6 +69,6 @@
     </div>
 
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
