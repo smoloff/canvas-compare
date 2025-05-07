@@ -56,6 +56,7 @@ function addDragHandlers() {
     // Рух мишки
     window.addEventListener('mousemove', (e) => {
         if (!state.isDragging) return;
+        
 
         const dx = e.clientX - state.dragStart.x;
         const dy = e.clientY - state.dragStart.y;
