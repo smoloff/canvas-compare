@@ -7,7 +7,7 @@ const state = {
     position: { x: 0, y: 0 },
     positionMin: {x: -10, y: -10},
     isDragging: false,
-    dragStart: { x: 0, y: 0 }
+    dragStart: null
 };
 
 // Заповнення матеріалів
@@ -37,48 +37,50 @@ function removeImg(id) {
     });
 }
 
-// Додавання обробників перетягування
-function addDragHandlers() {
     const images = document.querySelectorAll('.comparison-image');
+    const imageWrap = document.querySelectorAll('.comparison-item');
+    
 
     images.forEach(img => {
-        // Встановлюємо початкові координати
         img.style.transform = `translate(${state.position.x}px, ${state.position.y}px)`;
 
         img.addEventListener('mousedown', (e) => {
             e.preventDefault();
-            state.isDragging = true;
-            state.dragStart.x = e.clientX;
-            state.dragStart.y = e.clientY;
+            console.log(img.offsetWidth)
+            console.log(imageWrap[1])
+            state.dragStart = { x: e.clientX, y: e.clientY };
+            
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mouseup', onMouseUp);
         });
     });
 
-    // Рух мишки
-    window.addEventListener('mousemove', (e) => {
-        if (!state.isDragging) return;
-        
+    function onMouseMove(e) {
+        if (!state.dragStart) return;
 
+        // Обчислюємо різницю між поточним і стартовим положенням миші
         const dx = e.clientX - state.dragStart.x;
         const dy = e.clientY - state.dragStart.y;
 
+         // Поточне зміщення = глобальна позиція + нова зміна
         const newX = state.position.x + dx;
         const newY = state.position.y + dy;
-
+        // Застосовуємо зміщення до всіх зображень
         document.querySelectorAll('.comparison-image').forEach(img => {
-            img.style.transform = `translate(${newX}px, ${newY}px)`;
+        img.style.transform = `translate(${newX}px, ${newY}px)`;
         });
+    }
 
-        console.log(`X: ${newX}, Y: ${newY}`);
-    });
+    function onMouseUp(e) {
+        if (!state.dragStart) return;
 
-    // Відпускання мишки
-    window.addEventListener('mouseup', (e) => {
-        if (!state.isDragging) return;
-        state.isDragging = false;
+    // Додаємо зміщення до глобальної позиції
         state.position.x += e.clientX - state.dragStart.x;
         state.position.y += e.clientY - state.dragStart.y;
-    });
-}
-
-// Виклик після завантаження
-addDragHandlers();
+    
+        state.dragStart = null;
+    
+        // Очищуємо слухачі
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+    }
